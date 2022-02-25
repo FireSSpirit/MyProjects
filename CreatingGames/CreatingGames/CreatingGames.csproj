@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Studio.cs" />
+    <Compile Include="Publisher.cs" />
+    <Compile Include="IWorking.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamOfStudio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
