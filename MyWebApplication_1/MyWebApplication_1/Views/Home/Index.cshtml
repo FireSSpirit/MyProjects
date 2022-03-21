@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name=" viewport" content="width=device-width"/>
+    <title>Forum</title>
+
+    <style>
+        table {border-collapse:collapse; }
+
+        td,th {
+            padding:3px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+
+        <h3>Список тем</h3>
+
+        <table>
+            <tr style="background-color:burlywood;">
+                <td><p>Тема</p></td>
+                <td><p>Автор темы</p></td>
+                <td><p>Ответы</p></td>
+                <td><p>Просмотры</p></td>
+                <td>
+                    <form action="/Home/Add">
+                        <button>Добавить новую <br />тему</button>
+                    </form>
+                </td>
+            </tr>
+
+            @foreach (var p in ViewBag.ForumThemes)
+            {
+        <tr>
+            <td><p>@p.ThemeName</p></td>
+            <td><p>@p.Author</p></td>
+            <td><p>@p.Answers</p></td>
+            <td><p>@p.Views</p></td>
+            <td><p><a href="/Home/ForumTheme/@p.Id">Посмотреть тему</a></p></td>
+        </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
