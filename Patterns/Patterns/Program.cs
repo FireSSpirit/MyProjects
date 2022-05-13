@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Patterns
+namespace Factory_Method
 {
     class Program
     {
