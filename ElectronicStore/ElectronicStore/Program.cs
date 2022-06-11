@@ -15,6 +15,7 @@ namespace ElectronicStore
                     200000,
                     550
                     );
+
             // Создание нового пользователя
                 Console.WriteLine("Список товаров:");
 

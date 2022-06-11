@@ -9,6 +9,7 @@ namespace NewVSOverride
     {
         static void Main(string[] args)
         {
+
             Man man = new Child("Вася");
             Man man2 = new Man("Василий");
             Child child = (Child)man;
@@ -25,7 +26,7 @@ namespace NewVSOverride
 
             Console.ReadKey();
         }
-
+        //0242
         public static int Calculate(int i)
         {
             Console.Write(i++);
