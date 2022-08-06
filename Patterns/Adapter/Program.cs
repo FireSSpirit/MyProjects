@@ -2,6 +2,7 @@
 
 namespace Adapter
 {
+
     class Program
     {
         static void Main(string[] args)
@@ -18,7 +19,6 @@ namespace Adapter
             ITransport camelTransport = new CamelToTransportAdapter(camel);
             // продолжаем путь по пескам пустыни
             driver.Travel(camelTransport);
-
             Console.Read();
         }
     }
@@ -57,9 +57,14 @@ namespace Adapter
     // Адаптер от Camel к ITransport
     class CamelToTransportAdapter : ITransport
     {
+        readonly byte s;
+        byte i;
         Camel camel;
         public CamelToTransportAdapter(Camel c)
         {
+            i = Convert.ToByte(Console.ReadLine());
+            s = (byte)(i + 2);
+            Console.WriteLine(s);
             camel = c;
         }
 

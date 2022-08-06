@@ -12,8 +12,9 @@ namespace NewVSOverride
 
             Man man = new Child("Вася");
             Man man2 = new Man("Василий");
-            Child child = (Child)man;
-
+            Child child = new Child("Васян");
+            //Child child = (Child)man;
+            child = (Child)man;
             //child = (Child)man2;
             // сверху down-cast преобразование невозможно
             child.First(); // выведет метод First у Child
