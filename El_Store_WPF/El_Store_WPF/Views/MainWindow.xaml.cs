@@ -1,23 +1,17 @@
-﻿using System;
+﻿using El_Store_WPF.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Data.SqlClient;
-using System.Data;
-using System.Configuration;
-using El_Store_WPF.ViewModels;
 
 namespace El_Store_WPF
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+    // Главное окно с данными
     public partial class MainWindow : Window
     {
-        MainViewModel mvm;
+        private readonly MainViewModel mvm;
         public MainWindow()
         {
-            InitializeComponent();            
-            mvm = new MainViewModel();           
+            InitializeComponent();
+            mvm = new MainViewModel();
+            // Связывание данных
             DataContext = mvm;
         }
     }
