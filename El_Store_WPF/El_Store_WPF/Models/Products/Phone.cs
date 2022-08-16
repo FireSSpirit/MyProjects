@@ -1,46 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace El_Store_WPF.Models
+﻿namespace El_Store_WPF.Models
 {
+    // Класс-наследник Смартфон.
+    // Свойства телефона: диагональ и цвет
     class Phone : Product
     {
-        private double diagonal;
-        private string color;
-        public double Diagonal {
-            get { return diagonal; }
-            set
-            {
-                diagonal = value;
-                OnPropertyChanged("Diagonal");
-            }
-        }
-        public string Color {
-            get { return color; }
-            set
-            {
-                color = value;
-                OnPropertyChanged("Color");
-            }
-        }
-        // Свойства телефона: диагональ и цвет
-        public Phone(string name, int price, string manufacturer, double diagonal, string color)
+        #region Properties
+        public double Diagonal { get; set; }
+        public string Color { get; set; }
+        #endregion
+        #region Constructor
+        public Phone(int id, string name, decimal price, string manufacturer, int count, double diagonal, string color) : base(id, name, price, manufacturer, count)
         {
-            Name = name;
-            Price = price;
-            Manufacturer = manufacturer;
             Diagonal = diagonal;
             Color = color;
+            TypeProduct = Type.Phone;
         }
+        #endregion
     }
 }
-
-//Console.WriteLine("Смартфон:");
-//Console.WriteLine("Название: " + samsungGalaxyS21Gray.Name);
-//Console.WriteLine("Цена: " + samsungGalaxyS21Gray.Price);
-//Console.WriteLine("Производитель: " + samsungGalaxyS21Gray.Manufacturer);
-//Console.WriteLine("Диагональ: " + samsungGalaxyS21Gray.Diagonal + "'");
-//Console.WriteLine("Цвет: " + samsungGalaxyS21Gray.Color);

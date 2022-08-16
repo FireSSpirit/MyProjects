@@ -1,71 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace El_Store_WPF.Models
+﻿namespace El_Store_WPF.Models
 {
-    public class Product : INotifyPropertyChanged
+    // Родительский класс, представляющий из себя Товар со свойствами,
+    // которые есть у каждого созданного продукта
+    public class Product
     {
-        private int id;
-        private decimal price;
-        private string name;
-        private string manufacturer;
-        private int count;
-        public int Id
+        #region Properties
+        public int Id { get; set; }
+        public decimal Price { get; set; }
+        public string Name { get; set; }
+        public string Manufacturer { get; set; }
+        public int Count { get; set; }
+        public Type TypeProduct { get; set; }
+        public string TextType
         {
-            get { return id; }
-            set
-            {
-                id = value;
-                OnPropertyChanged("Id");
-            }
+            get { return TypeProduct == Type.Phone ? "Смартфон" : "Наушники"; }
         }
-        public decimal Price
+        public string HyperLink
         {
-            get { return price; }
-            set
-            {
-                price = value;
-                OnPropertyChanged("Price");
-            }
+            get { return "https://yandex.ru/search/?text=" + Manufacturer + "+" + Name; }
         }
-        public string Name
+        #endregion
+        #region Constructor
+        public Product(int id, string name, decimal price, string manufacturer, int count)
         {
-            get { return name; }
-            set
-            {
-                name = value;
-                OnPropertyChanged("Name");
-            }
+            Id = id;
+            Name = name;
+            Price = price;
+            Manufacturer = manufacturer;
+            Count = count;
         }
-        public string Manufacturer
-        {
-            get { return manufacturer; }
-            set
-            {
-                manufacturer = value;
-                OnPropertyChanged("Manufacturer");
-            }
-        }
-
-        public int Count
-        {
-            get { return count; }
-            set
-            {
-                count = value;
-                OnPropertyChanged("Count");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+        #endregion
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels="clr-namespace:El_Store_WPF.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="503">
+        Title="Products" Height="350" Width="625">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="14" />
@@ -27,16 +27,17 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="ID" Width="30"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Price}" Header="Цена, Руб" Width="80"/>
                 <DataGridTextColumn Binding="{Binding Manufacturer}" Header="Производитель" Width="100"/>
-                <DataGridTextColumn Binding="{Binding Count}" Header="Количество в наличии" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Count}" Header="Количество в наличии, шт." Width="160"/>
+                <DataGridTextColumn Binding="{Binding TextType}"  Header="Подробнее/Тип" Width="110"/>
             </DataGrid.Columns>
         </DataGrid>
-
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button x:Name="addButton" Content="Добавить" Command="{Binding AddCommand}" />
             <Button x:Name="editButton" Content="Изменить" Command="{Binding EditCommand}" CommandParameter="{Binding SelectedProduct}"/>
             <Button x:Name="deleteButton" Content="Удалить" Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedProduct}"/>
+            <Button x:Name="infoButton" Content="Подробнее" Command="{Binding InfoCommand}" CommandParameter="{Binding SelectedProduct}" HorizontalAlignment="Right" Margin="300,5,5,5" Width="70" />
         </StackPanel>
     </Grid>
 </Window>
